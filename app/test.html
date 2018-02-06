@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JSONP 实例</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <ul id="ul"></ul>
+    <audio src="" id="audio"></audio>
+    <a href="javascript:prev()">上一个</a>
+    <a href="javascript:next()">下一个</a>
+    <script type="text/javascript">
+        var words, id = 0
+        function prev() {
+            id--;
+            id = id < 0 ? words.length - 1 : id
+            show()
+
+        }
+        function next() {
+            id++;
+            id = id > words.length - 1 ? 0 : id;
+            
+            show();
+
+        }
+        function check(num) {
+            if(num==id){
+                // document.getElementById("audio").play()
+                // setTimeout(next,1000)
+                next()
+            }else{
+                alert("erro")
+            }
+        }
+        function show() {
+            id = id ? id : 0;
+            
+            document.getElementById("audio").src = "https://cns.ef-cdn.com/etownresources/dictionary_mp3/" + words[id].AudioPath + ".mp3"
+            document.getElementById("audio").play()
+
+            var html=""
+            // var html = "<li>" + words[id].WordText + "，" + words[id].POS + "</li>"
+            // var html = "<li>" + words[id].Translation + "，" + words[id].POS + "</li>"
+            var options = []
+            while (options.length < 3) {
+                var num = Math.floor(Math.random() * words.length)
+                if (options.indexOf(num)==-1&&id!=num) {
+                    options.push(num)                    
+                }
+            }
+            
+            options.push(id)
+            options.sort()
+            console.log(options)
+            for (let i = 0; i < options.length; i++) {
+                const num = options[i];
+                html += "<li><a href='javascript:check("+num+")'>" + words[num].Translation + "</a></li>"
+                // html += "<li><a href='javascript:check("+num+")'>" + words[num].WordText + "</a></li>"
+
+            }
+            document.getElementById("ul").innerHTML = html
+            // console.log(html)
+        }
+
+        function _jsonp_1C8D1266E087FA23ED8441093651D96E(data) {
+            console.log(data.Words)
+            words = data.Words
+            var html = ""
+            for (i = 0; i < words.length; i++) {
+                // console.log(words[i])
+                // alert(words[i].WordText)
+                html += "<li>" + words[i].WordText + "，" + words[i].Translation + "</li>"
+            }
+            document.getElementById("ul").innerHTML = html
+
+
+
+        }
+    </script>
+    <script type="text/javascript" src="https://ec.ef.com.cn/services/school/studytools/notebook/word/LoadWordListV2/?&wordGroup_id=912&startPageNo=1&endPageNo=1&pageSize=150&sortType=1&categoryType=1&languageCode=cs&siteVersion=4-1&member_id=35116189&marketCode=cn&partnerCode=Cool&cultureCode=zh-CN&token=ea32008815383da8efae8b7e2cdcdcd9|2%2f5%2f2018+2%3a04%3a01+AM&sourceMemberType_id=1&jsoncallback=_jsonp_1C8D1266E087FA23ED8441093651D96E"></script>
+</body>
+
+</html>

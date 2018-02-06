@@ -1,0 +1,52 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add jquery
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Program Files\Git\cmd;C:\Program Files (x86)\Skype\Phone\;D:\Program Files\ffmpeg\bin;D:\Program Files\Sublime Text 3;C:\Program Files (x86)\Google\Chrome\Application\;C:\Program Files (x86)\Yarn\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs\;E:\Anaconda2;E:\Anaconda2\Scripts;E:\Anaconda2\Library\bin;C:\Users\fyzhu\AppData\Local\Microsoft\WindowsApps;D:\Program Files\ffmpeg\bin;C:\Users\fyzhu\AppData\Local\GitHubDesktop\bin;C:\Users\fyzhu\AppData\Local\atom\bin;D:\Program Files\Fiddler2;C:\Users\fyzhu\AppData\Local\Yarn\bin;C:\Users\fyzhu\AppData\Roaming\npm;C:\Users\fyzhu\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Microsoft VS Code\bin
+
+Yarn version: 
+  1.3.2
+
+Node version: 
+  8.9.3
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "learn-english",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/fyzhu/learn-english.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/fyzhu/learn-english/issues"
+    },
+    "homepage": "https://github.com/fyzhu/learn-english#readme",
+    "devDependencies": {
+      "browser-sync": "^2.21.0",
+      "gulp": "^3.9.1",
+      "gulp-sass": "^3.1.0"
+    },
+    "dependencies": {
+      "jsonp": "^0.2.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\fyzhu\www\learn-english\node_modules\node-sass\vendor\win32-x64-57\binding.node'

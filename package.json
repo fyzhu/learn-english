@@ -1,0 +1,28 @@
+{
+  "name": "learn-english",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fyzhu/learn-english.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fyzhu/learn-english/issues"
+  },
+  "homepage": "https://github.com/fyzhu/learn-english#readme",
+  "devDependencies": {
+    "browser-sync": "^2.21.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "gulp-babel": "^7.0.1",
+    "jsonp": "^0.2.1"
+  }
+}
