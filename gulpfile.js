@@ -49,7 +49,7 @@ gulp.task('babel', function () {
                 chunks: false
             }))
         })
-        .pipe(gulp.dest('./app/bundle/'))
+        // .pipe(gulp.dest('./app/bundle/'))
         .pipe(rename({
             basename: 'main',
             extname: '.min.js'

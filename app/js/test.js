@@ -1,4 +1,4 @@
-import  getWords  from "./words";
+import  {getWords}  from "./words";
 
 getWords().then((res)=>{
     console.log(res);    
@@ -7,4 +7,4 @@ getWords().then((res)=>{
     
 })
 
-console.log('test');
+// console.log('test');
