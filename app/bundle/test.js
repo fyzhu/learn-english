@@ -12,4 +12,4 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log(error);
 });
 
-// console.log('test');
+console.log('test');

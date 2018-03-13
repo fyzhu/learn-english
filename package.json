@@ -20,10 +20,12 @@
     "@babel/core": "^7.0.0-beta.39",
     "@babel/preset-env": "^7.0.0-beta.39",
     "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.21.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
+    "gulp-plumber": "^1.2.0",
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {

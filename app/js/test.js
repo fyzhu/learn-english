@@ -7,4 +7,4 @@ getWords().then((res)=>{
     
 })
 
-// console.log('test');
+console.log('test');

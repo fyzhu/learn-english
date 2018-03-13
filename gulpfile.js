@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
+var plumber = require('gulp-plumber')
 var sass = require('gulp-sass');
 var babel = require('gulp-babel')
 var reload = browserSync.reload;
@@ -20,8 +21,8 @@ gulp.task('serve', ['sass', 'babel'], function () {
 // scss编译后的css将注入到浏览器里实现更新
 gulp.task('sass', function () {
     return gulp.src("app/scss/*.scss")
+        .pipe($.plumber())
         .pipe(sass())
-        // .pipe($.plumber())
         .pipe(gulp.dest("app/css"))
         .pipe(reload({ stream: true }));
 });
