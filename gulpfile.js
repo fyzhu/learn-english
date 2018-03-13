@@ -1,8 +1,12 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
-var plumber = require('gulp-plumber')
+var webpack = require('webpack') ;
+var gulpWebpack = require('webpack-stream');
+var plumber = require('gulp-plumber');
+var rename = require('gulp-rename');
 var sass = require('gulp-sass');
-var babel = require('gulp-babel')
+var babel = require('gulp-babel');
+var uglify = require('gulp-uglify');
 var reload = browserSync.reload;
 
 // 静态服务器 + 监听 scss/html 文件
@@ -29,9 +33,28 @@ gulp.task('sass', function () {
 
 gulp.task('babel', function () {
     gulp.src('app/js/*.js')
-        .pipe(babel({
-            presets: ['env']
-        }))
+        .pipe(plumber())
+        // .pipe(babel({
+        //     presets: ['env']
+        // }))
+        .pipe(gulpWebpack({
+            module: {
+                loaders: [{
+                    test: /\.js$/,
+                    loader: 'babel-loader'
+                }]
+            }
+        }), null, (err, stats) => {
+            log(`Finished '${colors.cyan('scripts')}'`, stats.toString({
+                chunks: false
+            }))
+        })
         .pipe(gulp.dest('./app/bundle/'))
+        .pipe(rename({
+            basename: 'cp',
+            extname: '.min.js'
+        }))
+        .pipe(uglify({ compress: { properties: false }, output: { 'quote_keys': true } }))
+        .pipe(gulp.dest('server/public/js'))
 })
 gulp.task('default', ['serve']);
