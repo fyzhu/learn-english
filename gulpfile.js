@@ -51,10 +51,10 @@ gulp.task('babel', function () {
         })
         .pipe(gulp.dest('./app/bundle/'))
         .pipe(rename({
-            basename: 'cp',
+            basename: 'main',
             extname: '.min.js'
         }))
-        .pipe(uglify({ compress: { properties: false }, output: { 'quote_keys': true } }))
-        .pipe(gulp.dest('server/public/js'))
+        // .pipe(uglify({ compress: { properties: false }, output: { 'quote_keys': true } }))
+        .pipe(gulp.dest('./app/bundle/'))
 })
 gulp.task('default', ['serve']);
