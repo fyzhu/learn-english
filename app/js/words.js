@@ -6,7 +6,7 @@ export function getWords() {
     const url = 'https://ec.ef.com.cn/services/school/studytools/notebook/word/LoadWordListV2/'
 
     const data = Object.assign({}, commonParams, {
-        wordGroup_id: '921'
+        wordGroup_id: '918'
         
     })
 

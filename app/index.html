@@ -11,6 +11,63 @@
     <script src="./bundle/main.min.js"></script>
 </head>
 <body>
-    
+    <ul id="ul"></ul>
+    <audio src="" id="audio"></audio>
+    <a href="javascript:prev()">上一个</a>
+    <a href="javascript:next()">下一个</a>
+    <script type="text/javascript">
+        var words, id = 0
+        function prev() {
+            id--;
+            id = id < 0 ? words.length - 1 : id
+            show()
+
+        }
+        function next() {
+            id++;
+            id = id > words.length - 1 ? 0 : id;
+
+            show();
+
+        }
+        function check(num) {
+            if (num == id) {
+                // document.getElementById("audio").play()
+                // setTimeout(next,1000)
+                next()
+            } else {
+                alert("erro")
+            }
+        }
+        function show() {
+            id = id ? id : 0;
+
+            document.getElementById("audio").src = "https://cns.ef-cdn.com/etownresources/dictionary_mp3/" + words[id].AudioPath + ".mp3"
+            document.getElementById("audio").play()
+
+            var html = ""
+            // var html = "<li>" + words[id].WordText + "，" + words[id].POS + "</li>"
+            // var html = "<li>" + words[id].Translation + "，" + words[id].POS + "</li>"
+            var options = []
+            while (options.length < 3) {
+                var num = Math.floor(Math.random() * words.length)
+                if (options.indexOf(num) == -1 && id != num) {
+                    options.push(num)
+                }
+            }
+
+            options.push(id)
+            options.sort()
+            console.log(options)
+            for (let i = 0; i < options.length; i++) {
+                const num = options[i];
+                html += "<li><a href='javascript:check(" + num + ")'>" + words[num].Translation + "</a></li>"
+                // html += "<li><a href='javascript:check("+num+")'>" + words[num].WordText + "</a></li>"
+
+            }
+            document.getElementById("ul").innerHTML = html
+            // console.log(html)
+        }        
+    </script>
 </body>
 </html>
